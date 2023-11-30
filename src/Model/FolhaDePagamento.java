@@ -9,5 +9,8 @@ package Model;
  * @author luizf
  */
 public class FolhaDePagamento {
+    public static String mes;
+    public static String ano;
+    public String SalarioLiquido;
     
 }

@@ -13,7 +13,7 @@ public class Conectar {
 }    
 public Connection getConnection(){
     //Define uma string url com informações de conexão
-   String url = "jdbc:sqlserver://DESKTOP-P1QOU0T:1433;databaseName=InfoPag;user=sa;password=infopag;integratedSecurity=false;encrypt=false;trustServerCertificate=false;";
+   String url = "jdbc:sqlserver://localhost:1433;databaseName=InfoPag;user=sa;password=infopag;integratedSecurity=false;encrypt=false;trustServerCertificate=false;";
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     //Tenta carregar a classe do driver usando Class.forName. Se falhar, imprime uma mensagem de erro no console.
     try{

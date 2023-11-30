@@ -25,10 +25,8 @@ public class LoginController {
     }
 
        
-            public void Login(Login login) throws SQLException, ClassNotFoundException{
-        String cpf = Login.TxtCpf.getText();
-        String senha = Login.TxtSenha.getText();
-        model.login(cpf,senha);
+            public void Logar(Login login, String cpf, String senha) throws SQLException, ClassNotFoundException{
+        model.login(cpf, senha);
         }
     
     }

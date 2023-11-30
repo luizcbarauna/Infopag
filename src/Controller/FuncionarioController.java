@@ -28,13 +28,16 @@ public FuncionarioController(CadastroFuncionario TelaCadastro, InfopagDAO model)
 
     public FuncionarioController() {
     }
+
+    public FuncionarioController(Menu View, InfopagDAO model) {
+       }
             public void Cadastro(CadastroFuncionario TelaCadastro) throws SQLException{
         String cpf = TelaCadastro.TxtCpf.getText();
         String senha = TelaCadastro.txtsenha.getText();
         Double salarioBruto =Double.parseDouble(TelaCadastro.TxtSalarioBruto.getText());
         String cargo = TelaCadastro.TxtCargo.getText();
         String nome = TelaCadastro.txtNome.getText();
-        model.insertFuncionario(cpf,nome,cargo,senha,salarioBruto);
+        model.insertFuncionario(cpf,nome,senha,cargo,salarioBruto);
         } 
       
   

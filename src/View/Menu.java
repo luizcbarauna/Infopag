@@ -4,6 +4,10 @@
  */
 package View;
 
+import Controller.FolhadePagamentoController;
+import Controller.FuncionarioController;
+import Model.InfopagDAO;
+
 /**
  *
  * @author luizf
@@ -28,54 +32,154 @@ public class Menu extends javax.swing.JFrame {
 
         btnAlterar = new javax.swing.JButton();
         btnRendimento = new javax.swing.JButton();
-        btnContracheque = new javax.swing.JButton();
         btnDados = new javax.swing.JButton();
         btnCadastro = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        BtnConsultar = new javax.swing.JButton();
+        txtmes = new javax.swing.JTextField();
+        txtano = new javax.swing.JTextField();
+        jTextPane1 = new javax.swing.JTextPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        btnRendimento1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAlterar.setContentAreaFilled(false);
-        getContentPane().add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 110, 20));
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 130, 105, 15));
 
         btnRendimento.setContentAreaFilled(false);
-        btnRendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnRendimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 110, 20));
-
-        btnContracheque.setContentAreaFilled(false);
-        btnContracheque.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnContracheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 110, 20));
+        btnRendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(btnRendimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 105, 105, 16));
 
         btnDados.setContentAreaFilled(false);
-        btnDados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 110, 20));
+        btnDados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDadosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 105, 105, 18));
 
         btnCadastro.setContentAreaFilled(false);
-        btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btnCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 110, 20));
+        btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 129, 105, 17));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 80, 25));
+        BtnConsultar.setContentAreaFilled(false);
+        BtnConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 205, 59, 10));
 
-        jComboBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 80, 25));
+        txtmes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtmes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 70, -1));
 
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 323, 60, 20));
+        txtano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtanoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtano, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
+
+        jTextPane1.setEditable(false);
+        jTextPane1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextPane1.setText("     Ano");
+        getContentPane().add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 70, -1));
+
+        jTextPane2.setEditable(false);
+        jTextPane2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextPane2.setText("     Mês");
+        getContentPane().add(jTextPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 70, -1));
+
+        btnRendimento1.setContentAreaFilled(false);
+        btnRendimento1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRendimento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRendimento1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRendimento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 105, 105, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resoucers/Menu.jpeg"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 129, -1, -1));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 360));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmesActionPerformed
+
+    private void txtanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtanoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtanoActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+CadastroFuncionario View = new CadastroFuncionario();
+        InfopagDAO model= new InfopagDAO();
+            FuncionarioController controller= new FuncionarioController(View,model);
+            Menu viewM = new Menu();  
+            viewM.dispose();
+    View.setVisible(true);
+    View.setLocationRelativeTo(null);  
+    
+  
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void BtnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultarActionPerformed
+        FolhaPagamento View = new FolhaPagamento();
+        InfopagDAO model= new InfopagDAO();
+         String ano = txtano.getText();
+         String mes= txtmes.getText();
+            FolhadePagamentoController controller= new FolhadePagamentoController();
+           
+    View.setVisible(true);
+    
+    View.setLocationRelativeTo(null);  
+   
+    }//GEN-LAST:event_BtnConsultarActionPerformed
+
+    private void btnRendimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendimento1ActionPerformed
+        RendimentoAdm View = new RendimentoAdm();
+        InfopagDAO model= new InfopagDAO();
+            View.setVisible(true);
+    View.setLocationRelativeTo(null); 
+    }//GEN-LAST:event_btnRendimento1ActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+       Alterardado View = new Alterardado();
+        InfopagDAO model= new InfopagDAO();
+            View.setVisible(true);
+    View.setLocationRelativeTo(null); // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDadosActionPerformed
+     Alterardado View = new Alterardado();
+        InfopagDAO model= new InfopagDAO();
+            View.setVisible(true);
+    View.setLocationRelativeTo(null); // TODO add your handling code here:    // TODO add your handling code here:
+    }//GEN-LAST:event_btnDadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,14 +217,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton BtnConsultar;
     public javax.swing.JButton btnAlterar;
     public javax.swing.JButton btnCadastro;
-    public javax.swing.JButton btnContracheque;
     public javax.swing.JButton btnDados;
     public javax.swing.JButton btnRendimento;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JButton btnRendimento1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
+    public javax.swing.JTextField txtano;
+    public javax.swing.JTextField txtmes;
     // End of variables declaration//GEN-END:variables
 }

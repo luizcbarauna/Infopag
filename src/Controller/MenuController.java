@@ -6,6 +6,7 @@ package Controller;
 
 import Model.InfopagDAO;
 import View.Menu;
+import View.MenuFuncionario;
 
 /**
  *
@@ -14,7 +15,14 @@ import View.Menu;
 public class MenuController {
         Menu Menu = new Menu();
         InfopagDAO model = new InfopagDAO();
-    public MenuController(Menu Menu, InfopagDAO model){
-       this.Menu = Menu;
+
+    public MenuController(Menu menu, InfopagDAO model){
+      
+
+        
     }
-}
+
+    public MenuController() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+ }

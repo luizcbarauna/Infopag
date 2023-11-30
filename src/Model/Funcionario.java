@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author luizf
@@ -14,7 +16,8 @@ public class Funcionario {
           String  cargo;
           String  senha;
           Double  salarioBruto;
-  //construtor
+          Date dtadmissao;
+          
       public Funcionario(){
       cpf="";  
       nome="";

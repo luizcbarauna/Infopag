@@ -6,6 +6,8 @@ package View;
 
 import Controller.LoginController;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -29,25 +31,26 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TxtCpf = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         BtnEntrar = new javax.swing.JButton();
-        TxtSenha = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
+        TxtCpf = new javax.swing.JTextField();
+        TxtSenha = new javax.swing.JPasswordField();
         login = new javax.swing.JLabel();
+
+        txtNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtNome.setOpaque(true);
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TxtCpf.setSelectedTextColor(new java.awt.Color(0, 0, 51));
-        TxtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtCpfActionPerformed(evt);
-            }
-        });
-        getContentPane().add(TxtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 170, 30));
 
         BtnEntrar.setContentAreaFilled(false);
         BtnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,8 +58,7 @@ public class Login extends javax.swing.JFrame {
                 BtnEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 150, 30));
-        getContentPane().add(TxtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 170, 30));
+        getContentPane().add(BtnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 244, 145, 25));
 
         jTextPane1.setEditable(false);
         jTextPane1.setBorder(null);
@@ -64,7 +66,6 @@ public class Login extends javax.swing.JFrame {
         jTextPane1.setForeground(new java.awt.Color(60, 63, 65));
         jTextPane1.setText("SENHA:");
         jTextPane1.setToolTipText("");
-        jTextPane1.setEnabled(false);
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 80, 30));
@@ -72,25 +73,35 @@ public class Login extends javax.swing.JFrame {
         jTextPane2.setEditable(false);
         jTextPane2.setBorder(null);
         jTextPane2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextPane2.setForeground(new java.awt.Color(0, 0, 0));
         jTextPane2.setText("CPF:");
         jTextPane2.setToolTipText("");
-        jTextPane2.setEnabled(false);
         jScrollPane2.setViewportView(jTextPane2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 80, 30));
 
+        TxtCpf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        TxtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtCpfActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TxtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 170, 30));
+
+        TxtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSenhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TxtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 162, 170, 30));
+
         login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resoucers/telaLogin.png"))); // NOI18N
         login.setText("CPF");
-        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 660, 370));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TxtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCpfActionPerformed
 
     private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
 if(TxtCpf.getText().matches("")||TxtSenha.getText().matches("")){
@@ -98,13 +109,27 @@ if(TxtCpf.getText().matches("")||TxtSenha.getText().matches("")){
     
 }else{
         try{
+            String cpf = TxtCpf.getText();
+            String senha = TxtSenha.getText();
     LoginController login = new LoginController();
-    login.Login(this);
+    login.Logar(this,cpf,senha);
 }catch(Exception e){
     
 }    
   }    
     }//GEN-LAST:event_BtnEntrarActionPerformed
+
+    private void TxtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSenhaActionPerformed
+
+    private void TxtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtCpfActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +166,22 @@ if(TxtCpf.getText().matches("")||TxtSenha.getText().matches("")){
         });
     }
 
+    public JTextField getTxtCpf() {
+        return TxtCpf;
+    }
+
+    public void setTxtCpf(JTextField TxtCpf) {
+        this.TxtCpf = TxtCpf;
+    }
+
+    public JPasswordField getTxtSenha() {
+        return TxtSenha;
+    }
+
+    public void setTxtSenha(JPasswordField TxtSenha) {
+        this.TxtSenha = TxtSenha;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnEntrar;
     public javax.swing.JTextField TxtCpf;
@@ -150,5 +191,6 @@ if(TxtCpf.getText().matches("")||TxtSenha.getText().matches("")){
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JLabel login;
+    public javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
